@@ -1,8 +1,9 @@
-# coolurl
+## Coolurl
+A library created for static websites to generate pretty SEO friendly urls.
 
 index.php
-```php
 
+```php
 require '../app.php'; // require app.php (the one and only core file)
 
 $app = new App(); //instantiate
@@ -17,6 +18,11 @@ $app->map('/', function ($params) use ($app) {
 });
 
 $app->dispatch(); // dispatch you are done :)
+```
 
-
+.htaccess
+```apacheconf
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [QSA,L]
 ```

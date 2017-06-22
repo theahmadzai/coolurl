@@ -3,15 +3,11 @@
 require '../app/app.php';
 
 $app = new App();
-$app->basePath('immortal/rumillc/public/');
-$app->viewsPath('../app/views/');
+$app->basePath('public/');
+$app->viewsPath('app/views/');
 
 $app->map('/', function ($params) use ($app) {
     $app->render('home');
-});
-
-$app->map('/products', function ($params) use ($app) {
-    $app->render('products');
 });
 
 $app->map('/contact', function ($params) use ($app) {

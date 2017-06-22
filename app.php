@@ -13,7 +13,7 @@ class App
 
     }
 
-    public function basePath(string $path = '')
+    public function basePath($path = '')
     {
         if (empty($path)) {
             return $this->base_path;
@@ -22,7 +22,7 @@ class App
         $this->base_path = '/' . trim($path, '/');
     }
 
-    public function viewsPath(string $path = '')
+    public function viewsPath($path = '')
     {
         if (empty($path)) {
             return $this->views_path;
@@ -31,7 +31,7 @@ class App
         $this->views_path = trim($path, '/');
     }
 
-    public function map(string $pattern, callable $callback)
+    public function map($pattern, $callback)
     {
         $this->routes[] = [trim($pattern, '/'), $callback];
     }
@@ -41,7 +41,7 @@ class App
         $this->match($this->uri);
     }
 
-    private function match(string $uri)
+    private function match($uri)
     {
         $request = $this->resolve($uri);
 
@@ -66,7 +66,7 @@ class App
         return $this->render('errors/404');
     }
 
-    private function resolve(string $uri)
+    private function resolve($uri)
     {
         $uri = trim($uri, '/');
         $uri = substr($uri, strlen($this->basePath()));
@@ -80,7 +80,7 @@ class App
         return $params;
     }
 
-    public function render(string $page, array $params = [])
+    public function render($page, $params = [])
     {
         $basePath = $this->basePath();
         $page = trim($page, '/');

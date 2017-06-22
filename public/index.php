@@ -1,10 +1,10 @@
 <?php
 
-require '../app/app.php';
+require '../app.php';
 
 $app = new App();
-$app->basePath('public/');
-$app->viewsPath('app/views/');
+$app->basePath('theahmadzai/coolurl/public/');
+$app->viewsPath('views/');
 
 $app->map('/', function ($params) use ($app) {
     $app->render('home');
